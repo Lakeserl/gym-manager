@@ -2,6 +2,7 @@
   <h2 class="text-center mb-4">Goal</h2>
   <div class="row">
 
+    <!-- Form tạo mục tiêu -->
     <div class="col-lg-6 col-md-12 mb-4">
       <div class="card p-4">
         <h5 class="card-title mb-3">Mục tiêu</h5>
@@ -38,6 +39,7 @@
       </div>
     </div>
 
+    <!-- Danh sách mục tiêu -->
     <div class="col-md-6">
       <div class="card p-4">
         <h5 class="card-title mb-3">Mục tiêu trước đó</h5>
@@ -53,6 +55,7 @@
                 <i class="bi" [ngClass]="goal.archived ? 'bi-check-circle-fill' : 'bi-x-circle-fill'"></i>
               </span>
             </p>
+            <!-- Nút đánh dấu hoàn thành -->
             <button
               *ngIf="!goal.archived"
               class="btn btn-sm btn-outline-success"

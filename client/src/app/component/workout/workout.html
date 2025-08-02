@@ -1,10 +1,10 @@
-<div class="container mt-5">
+<div class="container my-5">
   <h2 class="text-center mb-4">Workout</h2>
 
   <div class="row">
-    <!-- Form Đăng Bài Tập Mới -->
-    <div class="col-md-6">
-      <div class="card shadow-sm p-4 mb-4">
+    <!-- Form -->
+    <div class="col-lg-6 col-md-12 mb-4">
+      <div class="card workout-card p-4">
         <h5 class="text-center mb-3">Đăng Bài Tập Mới</h5>
         <form [formGroup]="workoutForm" (ngSubmit)="onSubmit()">
           <div class="form-group mb-3">
@@ -22,20 +22,22 @@
               <option *ngFor="let type of listLoaiHinhTapLuyen" [value]="type">{{ type }}</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-primary w-100" [disabled]="workoutForm.invalid">Đăng Bài Tập</button>
+          <button type="submit" class="btn btn-primary w-100" [disabled]="workoutForm.invalid">
+            Đăng Bài Tập
+          </button>
         </form>
       </div>
     </div>
 
-    <!-- Danh Sách Bài Tập Trước Đó -->
-    <div class="col-md-6">
-      <div class="card shadow-sm p-4 mb-4">
+    <!-- Past workouts -->
+    <div class="col-lg-6 col-md-12">
+      <div class="card workout-card p-4">
         <h5 class="text-center mb-3">Bài Tập Trước Đó</h5>
         <div *ngFor="let workout of pastWorkouts" class="mb-3 border-bottom pb-2">
           <p class="mb-1">
-            Calo tiêu hao: <strong>{{ workout.caloriesBurned }}</strong> -
-            Thời lượng: <strong>{{ workout.duration }}</strong> -
-            Ngày: <strong>{{ workout.date | date: 'MMM d, y' }}</strong> -
+            Calo tiêu hao: <strong>{{ workout.caloriesBurned }}</strong> –
+            Thời lượng: <strong>{{ workout.duration }}</strong> –
+            Ngày: <strong>{{ workout.date | date: 'MMM d, y' }}</strong> –
             Loại hình: <strong>{{ workout.type }}</strong>
           </p>
         </div>

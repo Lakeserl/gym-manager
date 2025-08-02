@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Activity } from '../component/activity/activity';
+import { StatsDTO } from '../component/dashboard/dashboard';
+import { Workout } from '../component/workout/workout';
 
 export interface ActivityData {
   id?: number;
@@ -43,5 +46,16 @@ export class Activityservice {
   }
   markGoalAsCompleted(id: number): Observable<any> {
     return this.http.put(`${baseUrl}test/completegoal/${id}`, null);
+  }
+  getStats(): Observable<any> {
+    return this.http.get(baseUrl + "test/stats")
+  }
+
+  getRecentWorkouts(): Observable<any> {
+    return this.http.get(baseUrl + "test/recent-workouts");
+  }
+
+  getRecentActivities(): Observable<any> {
+    return this.http.get(baseUrl + "test/recent-activities")
   }
 }
