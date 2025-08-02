@@ -65,7 +65,6 @@ DELETE /manager/activity/{id}              # Delete activity
 
 #### Create New Activity
 ```json
-POST /manager/activity
 {
   "userId": 1,
   "startTime": "2024-01-15T10:00:00",
