@@ -1,1 +1,45 @@
-<p>workout works!</p>
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Workout</h2>
+
+  <div class="row">
+    <!-- Form Đăng Bài Tập Mới -->
+    <div class="col-md-6">
+      <div class="card shadow-sm p-4 mb-4">
+        <h5 class="text-center mb-3">Đăng Bài Tập Mới</h5>
+        <form [formGroup]="workoutForm" (ngSubmit)="onSubmit()">
+          <div class="form-group mb-3">
+            <input type="number" class="form-control" placeholder="Nhập số calo đã tiêu hao" formControlName="caloriesBurned">
+          </div>
+          <div class="form-group mb-3">
+            <input type="number" class="form-control" placeholder="Nhập thời lượng tập" formControlName="duration">
+          </div>
+          <div class="form-group mb-3">
+            <input type="date" class="form-control" placeholder="Chọn ngày tập" formControlName="date">
+          </div>
+          <div class="form-group mb-3">
+            <select class="form-select" formControlName="type">
+              <option value="" disabled selected>Chọn loại hình tập</option>
+              <option *ngFor="let type of listLoaiHinhTapLuyen" [value]="type">{{ type }}</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary w-100" [disabled]="workoutForm.invalid">Đăng Bài Tập</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Danh Sách Bài Tập Trước Đó -->
+    <div class="col-md-6">
+      <div class="card shadow-sm p-4 mb-4">
+        <h5 class="text-center mb-3">Bài Tập Trước Đó</h5>
+        <div *ngFor="let workout of pastWorkouts" class="mb-3 border-bottom pb-2">
+          <p class="mb-1">
+            Calo tiêu hao: <strong>{{ workout.caloriesBurned }}</strong> -
+            Thời lượng: <strong>{{ workout.duration }}</strong> -
+            Ngày: <strong>{{ workout.date | date: 'MMM d, y' }}</strong> -
+            Loại hình: <strong>{{ workout.type }}</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

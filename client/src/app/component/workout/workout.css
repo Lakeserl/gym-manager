@@ -1,0 +1,25 @@
+
+.container {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 30px;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+input.form-control,
+select.form-select {
+  height: 45px;
+  font-size: 14px;
+}
+
+button.btn {
+  font-weight: 500;
+}
+
+p {
+  font-size: 15px;
+}

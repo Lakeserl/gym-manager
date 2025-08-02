@@ -1,1 +1,69 @@
-<p>goal works!</p>
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Goal</h2>
+  <div class="row">
+
+    <div class="col-lg-6 col-md-12 mb-4">
+      <div class="card p-4">
+        <h5 class="card-title mb-3">Mục tiêu</h5>
+        <form [formGroup]="goalForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <textarea
+              class="form-control"
+              formControlName="description"
+              placeholder="Nhập mục tiêu của bạn"
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <input
+              type="date"
+              class="form-control"
+              formControlName="startDate"
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              type="date"
+              class="form-control"
+              formControlName="endDate"
+            />
+          </div>
+          <button
+            class="btn btn-primary w-100"
+            type="submit"
+            [disabled]="goalForm.invalid"
+          >
+            Post Goal
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card p-4">
+        <h5 class="card-title mb-3">Mục tiêu trước đó</h5>
+        <ng-container *ngFor="let goal of goals; let i = index">
+          <div class="mb-3 border-bottom pb-2">
+            <p class="mb-1">
+              <strong>Mô tả:</strong> {{ goal.description }}<br />
+              <strong>Bắt đầu:</strong> {{ goal.startDate | date: 'dd/MM/yyyy' }}<br />
+              <strong>Kết thúc:</strong> {{ goal.endDate | date: 'dd/MM/yyyy' }}<br />
+              <strong>Hoàn thành:</strong>
+              <span [ngClass]="goal.archived ? 'text-success' : 'text-danger'">
+                {{ goal.archived ? 'Đã hoàn thành' : 'Chưa hoàn thành' }}
+                <i class="bi" [ngClass]="goal.archived ? 'bi-check-circle-fill' : 'bi-x-circle-fill'"></i>
+              </span>
+            </p>
+            <button
+              *ngIf="!goal.archived"
+              class="btn btn-sm btn-outline-success"
+              (click)="markAsCompleted(goal.id)"
+            >
+              Đánh dấu hoàn thành
+            </button>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+  </div>
+</div>

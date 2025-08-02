@@ -26,4 +26,22 @@ export class Activityservice {
   getActivity(): Observable<any>{
     return this.http.get(baseUrl + "test/activities");
   }
+
+  postWorkout(WorkoutDTO: any): Observable<any>{
+    return this.http.post(baseUrl + "test/postworkout", WorkoutDTO);
+  }
+
+  getWorkouts(): Observable<any> {
+  return this.http.get(baseUrl + 'test/getallworkouts');
+}
+  postGoal(GoalDTO: any): Observable<any>{
+    return this.http.post(baseUrl + "test/postgoal", GoalDTO);
+  }
+
+  getGoals(): Observable<any> {
+    return this.http.get(baseUrl + "test/getAllGoals");
+  }
+  markGoalAsCompleted(id: number): Observable<any> {
+    return this.http.put(`${baseUrl}test/completegoal/${id}`, null);
+  }
 }

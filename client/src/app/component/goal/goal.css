@@ -1,0 +1,53 @@
+/* Tổng thể */
+.container {
+  max-width: 1200px;
+  margin-top: 40px;
+}
+
+/* Card form và danh sách mục tiêu */
+.card {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+/* Tiêu đề */
+.card-title {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Nút Post Goal */
+button[type="submit"] {
+  background-color: #4d8cff;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #1a6fff;
+}
+
+/* Nút đánh dấu hoàn thành */
+.btn-outline-success {
+  font-size: 0.875rem;
+  padding: 4px 12px;
+  margin-top: 5px;
+}
+
+/* Icon hoàn thành / chưa hoàn thành */
+.text-success i {
+  color: #28a745;
+}
+
+.text-danger i {
+  color: #dc3545;
+}
+
+/* Responsive padding */
+@media (max-width: 768px) {
+  .card {
+    padding: 1rem;
+  }
+}

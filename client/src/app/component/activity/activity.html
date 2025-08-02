@@ -1,74 +1,74 @@
 <div class="container mt-4">
   <h2 class="text-center mb-4">Activity</h2>
+<div class="row">
 
-  <div class="row">
-    <div class="col-lg-6 col-md-12 mb-4">
-      <div class="card p-4">
-        <h5 class="card-title mb-3">Post New Activity</h5>
-        <form [formGroup]="activityForm" (ngSubmit)="onSubmit()">
-          <div class="mb-3">
-            <label class="form-label">CaloriesBurn</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Enter your calories"
-              formControlName="caloriesBurned"
-              title="Please input the calories"
-            />
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Distance (KM)</label>
-            <input
-              type="number"
-              class="form-control"
-              placeholder="Enter distance"
-              formControlName="distance"
-              title="Total distance covered in kilometers"
-            />
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Steps</label>
-            <input
-              type="number"
-              class="form-control"
-              placeholder="Enter steps"
-              formControlName="step"
-              title="Total number of steps you walked"
-            />
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Date</label>
-            <input
-              type="date"
-              class="form-control"
-              formControlName="date"
-              title="The date when this activity happened"
-            />
-          </div>
-          <button class="btn btn-primary w-100" type="submit" [disabled]="!activityForm.valid">
-            Post Activity
-          </button>
-        </form>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card p-4">
-        <h5 class="card-title mb-3">PastActivity</h5>
-        @for(activity of activities; track $index) {
-        <div class="mb-3 border-bottom pb-2">
-          <p class="mb-1">
-            <strong>Calories Burned:</strong> {{ activity.caloriesBurned }} -
-            <strong>Distance:</strong> {{ activity.distance }} KM -
-            <strong>Steps:</strong> {{ activity.step }}
-          </p>
-          <p class="mb-0">
-            <strong>Date:</strong> {{ activity.date | date: 'MMM dd, yyyy' }}
-          </p>
+  <div class="col-lg-6 col-md-12 mb-4">
+    <div class="card p-4">
+      <h5 class="card-title mb-3">Hoạt Động Mới</h5>
+      <form [formGroup]="activityForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label class="form-label">Calo Đã Đốt</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nhập lượng calo"
+            formControlName="caloriesBurned"
+            title="Vui lòng nhập lượng calo đã đốt"
+          />
         </div>
-        }
+        <div class="mb-3">
+          <label class="form-label">Quãng đường (KM)</label>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Nhập quãng đường"
+            formControlName="distance"
+            title="Tổng quãng đường bạn đã đi (km)"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Số bước chân</label>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Nhập số bước"
+            formControlName="step"
+            title="Tổng số bước bạn đã đi"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Ngày</label>
+          <input
+            type="date"
+            class="form-control"
+            formControlName="date"
+            title="Ngày bạn thực hiện hoạt động này"
+          />
+        </div>
+        <button class="btn btn-primary w-100" type="submit" [disabled]="!activityForm.valid">
+          Đăng Hoạt Động
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card p-4">
+      <h5 class="card-title mb-3">Hoạt Động Trước Đó</h5>
+      @for(activity of activities; track $index) {
+      <div class="mb-3 border-bottom pb-2">
+        <p class="mb-1">
+          <strong>Calo đã đốt:</strong> {{ activity.caloriesBurned }} -
+          <strong>Quãng đường:</strong> {{ activity.distance }} KM -
+          <strong>Số bước:</strong> {{ activity.step }}
+        </p>
+        <p class="mb-0">
+          <strong>Ngày:</strong> {{ activity.date | date: 'dd MMM, yyyy' : undefined : 'vi' }}
+        </p>
       </div>
+      }
     </div>
   </div>
 </div>
